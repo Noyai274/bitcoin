@@ -1,0 +1,14 @@
+<section class="contact-edit" >
+    <form #form="ngForm" class="form-group" (ngSubmit)="onSubmit(form.value)">
+        <label for="name">Contact Name
+            <input ngModel [(ngModel)]="contact.name" id="name" type="text" name="name" placeholder="Enter name" required>
+        </label>
+        <label for="phone">Contact Phone
+            <input ngModel [(ngModel)]="contact.phone" id="phone" type="text" name="phone" placeholder="Enter phone" required>
+        </label>
+        <label for="email">Contact Email
+            <input ngModel [(ngModel)]="contact.email" id="email" type="text" name="email" placeholder="Enter email" required>
+        </label>
+        <button type="submit">Save</button>
+    </form>
+</section>

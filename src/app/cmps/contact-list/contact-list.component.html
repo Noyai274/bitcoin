@@ -1,0 +1,4 @@
+<section class="contact-list">
+    <app-contact-preview *ngFor="let contact of contacts" [contact]="contact"></app-contact-preview>
+    <img (click)="addContact()" class="img add-icon" src="../assets/icon/plus.png"/>
+</section>

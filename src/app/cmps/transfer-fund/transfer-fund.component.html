@@ -1,0 +1,10 @@
+<section class="transfer">
+    <h1>Transfer money to {{contact.name}}?</h1>
+    <form id="form" #form="ngForm" (ngSubmit)="onSubmit(form.value); form.reset()">
+        <label for="amount">
+            Amount
+            <input ngModel [(ngModel)]="amount" type="number" name="amount" required>
+        </label>
+        <button [disabled]="form.invalid" type="submit">Transfer!</button>
+    </form>
+</section>

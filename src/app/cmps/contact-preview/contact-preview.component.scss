@@ -1,0 +1,11 @@
+.contact-preview{
+    cursor: pointer;
+    margin-bottom: 10px;
+    .contact-icon{
+        margin-inline-end: 20px;
+    }
+}
+
+.contact-preview:hover{
+    background-color: lightgray;
+}

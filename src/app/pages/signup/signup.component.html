@@ -1,0 +1,14 @@
+<section class="signup">
+    <form #form="ngForm" class="form-group" (ngSubmit)="onSubmit(form.value)">
+        <label for="username">
+            <input ngModel [(ngModel)]="user.username" id="username" type="text" name="username" placeholder="Userame" required>
+        </label>
+        <label for="fullname">
+            <input ngModel [(ngModel)]="user.fullname" id="fullname" type="text" name="fullname" placeholder="Full name" required>
+        </label>
+        <label for="password">
+            <input ngModel [(ngModel)]="user.password" id="password" type="password" name="password" placeholder="Password" required>
+        </label>
+        <button [disabled]="form.invalid">Signup!</button>
+    </form>
+</section>

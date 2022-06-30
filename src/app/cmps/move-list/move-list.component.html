@@ -1,0 +1,10 @@
+<section *ngIf="user.moves.length" class="move-list">
+    <h3>{{title}}</h3>
+    <ul>
+        <li class="move-item" *ngFor="let move of user.moves">
+            <h4 *ngIf="!contact">To: {{move["to"]}}</h4>
+            <h4>Amount: {{move['amount']}}</h4>
+            <h4>At: {{move['at'] | date}}</h4>
+        </li>
+    </ul>
+</section>

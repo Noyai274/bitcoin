@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mister-bitcoin';
+  page: string = 'home'
+  
+  onNav(nav:string){
+    this.page = nav
+  }
 }
