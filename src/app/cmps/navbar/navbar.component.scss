@@ -1,0 +1,13 @@
+.nav-item{
+    margin-inline-start: 10px;
+    cursor: pointer;
+
+    &.active{
+        color: rgb(239 75 75);
+    }
+}
+
+.nav-item:hover{
+    color: rgb(239 75 75);
+
+}

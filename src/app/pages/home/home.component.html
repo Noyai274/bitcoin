@@ -1,0 +1,15 @@
+<section *ngIf="user" class="home">
+    <div class="flex align-center">
+        <img class ="img-l" src="../assets/icon/contact.png">
+        <h1>Welcome, {{user.fullname}}!</h1>
+    </div>
+    <div class="flex align-center">
+        <img class ="img-l" src="../assets/icon/coins.png">
+        <h1>Coins: {{user.coins}}</h1>
+    </div>
+    <div class="flex align-center">
+        <img class ="img-l" src="../assets/icon/bitcoin.png">
+        <h2>BTR: {{btr$ | async | currency}}</h2>
+    </div>
+    <app-move-list  [user]="user" title="Your last Moves:"></app-move-list>
+</section>

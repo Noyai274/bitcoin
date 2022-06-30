@@ -1,0 +1,13 @@
+<section *ngIf="contact" class="contact-details">
+    <img class="img-l" src="../assets/icon/contact.png">
+    <h1>{{contact.name}}</h1>
+    <h2>Phone:{{contact.phone}}</h2>
+    <h2>Email:{{contact.email}}</h2>
+
+    <a [routerLink]="['/contact/edit',contact._id ]">Edit</a>
+    <a (click)="deleteContact(contact._id)" routerLink="/contact">Delete</a>
+    <a routerLink="/contact">Back</a>
+
+    <app-transfer-fund (onTransfer)="transfer($event)" [contact]="contact"></app-transfer-fund>
+    <app-move-list [contact]="contact" title="Your last Moves with {{contact.name}}:"></app-move-list>
+</section>
