@@ -20,6 +20,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { MoveListComponent } from './cmps/move-list/move-list.component';
 import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

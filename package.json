@@ -20,8 +20,14 @@
     "@angular/router": "^14.0.0",
     "angular-google-charts": "^2.2.2",
     "rxjs": "~7.5.0",
+    "sass": "^1.53.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
+  },
+  "stylePreprocessorOptions": {
+    "includePaths": [
+      "../src/assets/style/style.scss"
+    ]
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.0.2",

@@ -15,10 +15,11 @@ export class SignupComponent implements OnInit {
     private router: Router
   ) { }
   user!: User
-  mode: string = 'signup'
+  mode: string = 'login'
 
 
   ngOnInit(): void {
+    
     if (this.mode==='signup') {
       this.user = this.userService.getNewUser();
     }
@@ -35,5 +36,7 @@ export class SignupComponent implements OnInit {
       if (this.user) this.router.navigateByUrl('/')
     }
   }
+
+  
 
 }

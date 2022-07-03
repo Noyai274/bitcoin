@@ -1,31 +1,45 @@
-<section class="signup">
+<section class="signup-login">
     <div *ngIf="mode === 'signup'">
+        <section class="login-header">
 
-        <form #form="ngForm" class="form-group-signUp" (ngSubmit)="onSubmit(form.value)">
+            <h3>Register to Mister Bitcoin!</h3>
+            <img src="../../../assets/icon/bitcoin.png" class="img=l" alt="">
+        </section>
+        <form #form="ngForm" class="form-group signup flex column" (ngSubmit)="onSubmit(form.value)">
             <label for="username">
-                <input ngModel [(ngModel)]="user.username" id="username" type="text" name="username" placeholder="Userame" required>
+                <p>Username</p>
+                <input focus="true" class="login-input" ngModel [(ngModel)]="user.username" id="username" type="text" name="username" placeholder="Userame" required>
             </label>
+            <p>Full name</p> 
             <label for="fullname">
-                <input ngModel [(ngModel)]="user.fullname" id="fullname" type="text" name="fullname" placeholder="Full name" required>
+                <input class="login-input" ngModel [(ngModel)]="user.fullname" id="fullname" type="text" name="fullname" placeholder="Full name" required>
             </label>
-            <label for="password">
-                <input ngModel [(ngModel)]="user.password" id="password" type="password" name="password" placeholder="Password" required>
+           <p> Password</p>
+           <label for="password">
+               <input class="login-input" ngModel [(ngModel)]="user.password" id="password" type="password" name="password" placeholder="Password" required>
             </label>
-            <button [disabled]="form.invalid">Signup!</button>
-            <p> Already a member? <a (click)="this.mode = 'login'">Login!</a></p>
+
+                <button class="btn-slide" [disabled]="form.invalid" [ngStyle]="{'vertical-align':'middle'}"><span>Signup!</span></button>
+                <p class="change-mode"> Already a member? <a (click)="this.mode = 'login'">Login!</a></p>
         </form>
     </div> 
     <div *ngIf="mode === 'login'">
+        <section class="login-header">
 
-        <form #form="ngForm" class="form-group-login" (ngSubmit)="onSubmit(form.value)">
+            <h3>Login to Mister Bitcoin!</h3>
+            <img src="../../../assets/icon/bitcoin.png" class="img=l" alt="">
+        </section>
+        <form #form="ngForm" class="form-group login flex column" (ngSubmit)="onSubmit(form.value)">
             <label for="username">
-                <input ngModel [(ngModel)]="user.username" id="username" type="text" name="username" placeholder="Userame" required>
+                <p>Username</p>
+                <input class="login-input" ngModel [(ngModel)]="user.username" id="username" type="text" name="username" placeholder="Userame" required>
             </label>
             <label for="password">
-                <input ngModel [(ngModel)]="user.password" id="password" type="password" name="password" placeholder="Password" required>
+                <p>Password</p>
+                <input class="login-input" ngModel [(ngModel)]="user.password" id="password" type="password" name="password" placeholder="Password" required>
             </label>
-            <button [disabled]="form.invalid">Login!</button>
-           <p> Not a member? <a (click)="this.mode = 'signup'">Signup!</a></p>
+            <button class="btn-slide" [disabled]="form.invalid" [ngStyle]="{'vertical-align':'middle'}"><span>Login!</span></button>
+           <p class="change-mode"> Not a member? <a (click)="this.mode = 'signup'">Signup!</a></p>
         </form>
     </div>
 </section>
