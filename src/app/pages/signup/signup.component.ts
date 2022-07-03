@@ -15,15 +15,25 @@ export class SignupComponent implements OnInit {
     private router: Router
   ) { }
   user!: User
+  mode: string = 'signup'
 
 
   ngOnInit(): void {
-    this.user = this.userService.getNewUser();
+    if (this.mode==='signup') {
+      this.user = this.userService.getNewUser();
+    }
   }
 
   onSubmit(form: NgForm) {
-    this.userService.loginNewUser(this.user)
-    this.router.navigateByUrl('/')
+    if (this.mode==='signup') {
+      this.userService.loginNewUser(this.user)
+      this.router.navigateByUrl('/')
+    }
+    else {
+      this.user = this.userService.findUser(form as any)
+      console.log(this.user)
+      if (this.user) this.router.navigateByUrl('/')
+    }
   }
 
 }

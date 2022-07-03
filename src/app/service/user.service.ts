@@ -11,17 +11,17 @@ import { StorageService } from './storage.service';
 })
 export class UserService {
 
-  user: User = {
+  users: User[] = [{
     fullname: 'puki',
     username: 'puki',
     coins: 100,
     password: '1234',
     moves: []
 
-  }
+  }]
 
 
-
+  user!: User
   private _user$ = new BehaviorSubject<User>({} as User)
   public user$ = this._user$.asObservable()
 
@@ -32,6 +32,7 @@ export class UserService {
     user.coins = 100,
       user.moves = [],
       this.user = user
+      this.users.push(user)
     this.authService.changeStatus(true)
     this.storageService.saveToStorage('user', user)
     this.loadUser()
@@ -55,7 +56,21 @@ export class UserService {
 
   }
 
+  public findUser(user: User) {
+    const {username, password}= user
+    
+    const loadedUser: any= this.users.find(currUser => {
+     return currUser.username === username &&
+      currUser.password === password
+    })
+    this.storageService.saveToStorage('user', loadedUser)
+    this.loadUser()
+    return this.user
+    
+  }
+
   public makeTransfer(amount: number, name: string) {
+
     const move: Move = {
       to: name,
       at: Date.now(),
@@ -64,7 +79,7 @@ export class UserService {
     const user = JSON.parse(JSON.stringify(this.user))
     user.moves.push(move)
     user.coins = user.coins - amount
-    this.storageService.saveToStorage('user',user)
+    this.storageService.saveToStorage('user', user)
     this._user$.next(user)
     this.user = user
   }
