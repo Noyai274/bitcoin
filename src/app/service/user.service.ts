@@ -56,6 +56,11 @@ export class UserService {
 
   }
 
+  public logout(){
+    this.storageService.saveToStorage('user', null)
+    this.loadUser()
+  }
+
   public findUser(user: User) {
     const {username, password}= user
     

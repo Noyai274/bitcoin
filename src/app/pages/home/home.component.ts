@@ -37,11 +37,5 @@ export class HomeComponent implements OnInit {
     if(!this.user) this.router.navigateByUrl('/signup')
   }
 
-
-  // this.contactService.loadContacts()
-  //  this.contacts$ = this.contactService.contacts$;
-  //  this.subscription = this.contactService.contacts$.subscribe(contacts =>{
-  //     this.contacts = contacts
-  //    });
 }
 

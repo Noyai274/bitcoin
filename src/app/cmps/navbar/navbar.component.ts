@@ -1,4 +1,8 @@
 import { Component, OnInit , Output, EventEmitter} from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,16 +12,25 @@ import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   @Output() nav = new EventEmitter
-  constructor() { }
-  // active : string = ''
-  public isActive:boolean = false;
-
+  constructor(private userService: UserService,
+    private router: Router
+    ) { }
+  user$!: Observable<User>
+  user!: User
+  subscription!: Subscription
 
   ngOnInit(): void {
+    this.userService.loadUser()
+    this.user$ = this.userService.user$
+    this.subscription = this.userService.user$.subscribe(user =>{
+      this.user = user
+    })
   }
 
-  // moveTo(page: string){
-  //   this.active = page
-  // }
+  logout(){
+    this.userService.logout()
+    this.router.navigateByUrl('/signup')
+  }
+
 
 }
