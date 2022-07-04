@@ -1,0 +1,21 @@
+<section class="charts flex container">
+
+
+  <google-chart [title]="transactions?.name" [type]='myType' [data]="transactionsData" [columns]="['Date', 'Price']"
+    [options]="{colors: ['#e0440e'],is3D: true,
+  legend: { position: 'none' }, backgroundColor:'transparent', hAxis: {
+    textStyle:{color: '#FFF'}},vAxis: {
+      textStyle:{color: '#FFF'}
+  },titleTextStyle: {
+    color: '#e0440e'
+}	}" [width]="550" [height]="400">
+  </google-chart>
+  <google-chart [title]="marketPrice?.name" [type]='myType' [data]="marketData" [columns]="['Date', 'Price']" [options]="{	colors: ['#61d900'],is3D: true,backgroundColor:'transparent', hAxis: {
+    textStyle:{color: '#FFF'}},vAxis: {
+      textStyle:{color: '#FFF'}
+  },titleTextStyle: {
+    color: '#61d900'
+},
+legend: { position: 'none' }	}	" [width]="550" [height]="400">
+  </google-chart>
+</section>

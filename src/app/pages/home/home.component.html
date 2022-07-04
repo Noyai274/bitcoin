@@ -1,15 +1,8 @@
-<section *ngIf="user" class="home">
-    <div class="flex align-center">
-        <img class ="img-l" src="../assets/icon/contact.png">
-        <h1>Welcome, {{user.fullname}}!</h1>
-    </div>
-    <div class="flex align-center">
-        <img class ="img-l" src="../assets/icon/coins.png">
-        <h1>Coins: {{user.coins}}</h1>
-    </div>
-    <div class="flex align-center">
-        <img class ="img-l" src="../assets/icon/bitcoin.png">
-        <h2>BTR: {{btr$ | async | currency}}</h2>
-    </div>
+<section *ngIf="user" class="home container">
+    <h1 class="username-header">Welcome, {{user.fullname}}!<span (click)="logout()" class="logout-btn">Log out</span></h1> 
+    <p class="gray">CURRENT BALANCE</p>
+    <h2>BIT: <span class="green"> ₿ {{user.coins}}</span></h2>
+     <h2>USD: <span class="gray">{{btr$ | async | currency}}</span></h2>
+    </section>
+    <app-stats></app-stats>
     <app-move-list  [user]="user" title="Your last Moves:"></app-move-list>
-</section>

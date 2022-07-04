@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app-root/app.component';
 import { NavbarComponent } from './cmps/navbar/navbar.component';
-import { StatsComponent } from './pages/stats/stats.component';
+import { StatsComponent } from './cmps/stats/stats.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';

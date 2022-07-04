@@ -3,9 +3,12 @@
     margin-bottom: 10px;
     .contact-icon{
         margin-inline-end: 20px;
+        height: 80px;
+        border-radius: 50%;
     }
 }
 
 .contact-preview:hover{
-    background-color: lightgray;
+    background-color: rgb(68, 69, 70, 0.7);
+    text-decoration: none;
 }

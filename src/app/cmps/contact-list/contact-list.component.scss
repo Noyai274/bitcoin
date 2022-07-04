@@ -1,5 +1,15 @@
 .add-icon{
+    font-size: x-large;
     cursor: pointer;
     position: fixed;
-    right: 50px;
+    right: 2em;
+    padding: 0px 10px 6px 10px;
+    bottom: 1em;
+    background: rgb(239 75 75);
+    border-radius: 50%;
+}
+
+.add-icon:hover{
+    background: rgb(241, 51, 51);
+
 }

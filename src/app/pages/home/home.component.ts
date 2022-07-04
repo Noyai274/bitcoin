@@ -37,5 +37,10 @@ export class HomeComponent implements OnInit {
     if(!this.user) this.router.navigateByUrl('/signup')
   }
 
+  logout(){
+    this.userService.logout()
+    this.router.navigateByUrl('/signup')
+  }
+
 }
 

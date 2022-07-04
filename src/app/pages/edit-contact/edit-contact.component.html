@@ -1,4 +1,4 @@
-<section class="contact-edit" >
+<section class="contact-edit container" >
     <form #form="ngForm" class="form-group" (ngSubmit)="onSubmit(form.value)">
         <label for="name">Contact Name
             <input ngModel [(ngModel)]="contact.name" id="name" type="text" name="name" placeholder="Enter name" required>

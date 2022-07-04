@@ -1,13 +1,19 @@
-.nav-item{
-    margin-inline-start: 10px;
-    cursor: pointer;
 
-    &.active{
-        color: rgb(239 75 75);
+.navbar{
+    padding: 5px 8vw;
+    background-color: rgb(9, 9, 44);
+    margin-bottom: 0.5em;
+    .nav-item{
+        margin-inline-start: 10px;
+        cursor: pointer;
+        
+        &.active{
+            color: rgb(239 75 75);
+        }
     }
-}
-
-.nav-item:hover{
-    color: rgb(239 75 75);
-
+    
+    .nav-item:hover{
+        color: rgb(239 75 75);
+        
+    }
 }
