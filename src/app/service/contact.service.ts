@@ -189,12 +189,9 @@ export class ContactService {
     }
 
     private _addContact(contact: Contact) {
-        console.log('contact from service', contact)
         //mock the server work
         const newId = this.utilService.makeId(6)
-        console.log('new id service', newId)
         const newContact = new Contact(newId,contact.name, contact.email, contact.phone);
-        console.log('new contact from service', newContact)
         this._contactsDb.push(newContact)
         this._contacts$.next(this._sort(this._contactsDb))
         return newContact._id

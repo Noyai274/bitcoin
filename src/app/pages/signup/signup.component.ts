@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
   ) { }
   user!: User
   mode: string = 'login'
+  // form!: NgForm
 
 
   ngOnInit(): void {
@@ -27,12 +28,11 @@ export class SignupComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (this.mode==='signup') {
-      this.userService.loginNewUser(this.user)
+      this.userService.loginNewUser(form as any)
       this.router.navigateByUrl('/')
     }
     else {
       this.user = this.userService.findUser(form as any)
-      console.log(this.user)
       if (this.user) this.router.navigateByUrl('/')
     }
   }

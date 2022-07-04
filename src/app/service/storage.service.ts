@@ -12,6 +12,7 @@ export class StorageService {
   }
   public loadFromStorage(key: string) {
     let val: any = localStorage.getItem(key)
+    if (val === undefined) return null
     return JSON.parse(val)
   }
   

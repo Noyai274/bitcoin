@@ -38,7 +38,7 @@ export class UserService {
     this.loadUser()
     return this.user
   }
-
+  
   getNewUser() {
     return {
       fullname: '',
@@ -48,24 +48,24 @@ export class UserService {
       moves: []
     }
   }
-
+  
   public loadUser() {
-    this.user = this.storageService.loadFromStorage('user')
-    let user: User = this.user
+    // debugger
+    let user = this.storageService.loadFromStorage('user')
+    this.user = user
     this._user$.next(user)
 
   }
 
   public logout(){
-    this.storageService.saveToStorage('user', null)
+    localStorage.clear()
     this.loadUser()
   }
 
   public findUser(user: User) {
     const {username, password}= user
-    
     const loadedUser: any= this.users.find(currUser => {
-     return currUser.username === username &&
+      return currUser.username === username &&
       currUser.password === password
     })
     this.storageService.saveToStorage('user', loadedUser)
