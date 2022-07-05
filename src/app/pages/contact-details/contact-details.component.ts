@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { Contact } from 'src/app/models/contact.model';
-import { User } from 'src/app/models/user.model';
 import { ContactService } from 'src/app/service/contact.service';
 import { UserService } from 'src/app/service/user.service';
 

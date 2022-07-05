@@ -1,0 +1,41 @@
+.contact-edit{
+    margin-top: 1em;
+    text-align: center;  
+    .back-btn{
+        display: block;
+        margin-bottom: 1em;
+        text-align: start;
+ }
+ .contact-img{
+    height: 80px;
+    border-radius: 50%;
+ } 
+ .edit-name, .edit-phone, .edit-email{
+    background-color: rgba(9, 9, 44, 0.5);
+    padding: 5px 0;
+    color: white;
+    text-align: start;
+    font-size: larger;
+    width: 300px;
+    height: 40px;
+    margin-top: 0.7em;
+ }
+ .edit-name{
+    font-size: x-large;
+    color: #e3373c;
+ }
+ .save-btn{
+    margin-top: 1em;
+    width: 100px;
+    align-self: end;
+    height: 40px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #f34141;
+    color: white;
+    font-size: large;
+}
+.save-btn:hover{
+     background-color: #f21b1b;
+ }
+}

@@ -1,4 +1,4 @@
 <section class="contact-list">
     <app-contact-preview *ngFor="let contact of contacts" [contact]="contact"></app-contact-preview>
-    <p (click)="addContact()" class="add-icon">+</p>
+    <p title="Add new contact" (click)="addContact()" class="add-icon">+</p>
 </section>

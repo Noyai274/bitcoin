@@ -1,0 +1,26 @@
+.contact-details {
+    text-align: center;
+    .details-menu{
+        margin: 1em 0;
+        .details-redirect:hover{
+            text-decoration: none;
+        }
+    }
+    .contact-img {
+        height: 80px;
+        border-radius: 50%;
+    }
+
+    .contact-header {
+        font-size: xx-large;
+        color: #e3373c;
+    }
+
+    .trash-img {
+        height: 35px;
+        cursor: pointer;
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+    }
+}

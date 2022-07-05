@@ -1,8 +1,11 @@
 
 .navbar{
     padding: 5px 8vw;
-    background-color: rgb(9, 9, 44);
+    background-color: rgb(9, 9, 44,0.5);
     margin-bottom: 0.5em;
+    .nav-header{
+        cursor: pointer;
+    }
     .nav-item{
         margin-inline-start: 10px;
         cursor: pointer;

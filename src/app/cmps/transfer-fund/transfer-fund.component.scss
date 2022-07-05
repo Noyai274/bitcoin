@@ -1,0 +1,20 @@
+.transfer {
+    margin-top: 1em;
+
+    .transfer-amt {
+        height: 2em;
+        width: 15em;
+    }
+    
+    .transfer-btn {
+        height: 2em;
+        color: white;
+        background-color: #e3373c;
+    }
+
+    .transfer-btn:focus-visible {
+        outline: none;
+        border: none;
+        background-color: #e31c23;
+    }
+}

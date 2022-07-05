@@ -1,14 +1,16 @@
 <section class="contact-edit container" >
-    <form #form="ngForm" class="form-group" (ngSubmit)="onSubmit(form.value)">
-        <label for="name">Contact Name
-            <input ngModel [(ngModel)]="contact.name" id="name" type="text" name="name" placeholder="Enter name" required>
+    <a class="back-btn" [routerLink]="['/contact', contact._id]">back</a>
+    <img class="contact-img" src="../../assets/icon/contact.png" alt="">
+    <form #form="ngForm" class="form-group flex column" (ngSubmit)="onSubmit(form.value)">
+        <label for="name">
+            <input class="edit-name" ngModel [(ngModel)]="contact.name" id="name" type="text" name="name" placeholder="Enter name" required>
         </label>
-        <label for="phone">Contact Phone
-            <input ngModel [(ngModel)]="contact.phone" id="phone" type="text" name="phone" placeholder="Enter phone" required>
+        <label for="phone">
+            <input class="edit-phone" ngModel [(ngModel)]="contact.phone" id="phone" type="text" name="phone" placeholder="Enter phone" required>
         </label>
-        <label for="email">Contact Email
-            <input ngModel [(ngModel)]="contact.email" id="email" type="text" name="email" placeholder="Enter email" required>
+        <label for="email">
+            <input class="edit-email" ngModel [(ngModel)]="contact.email" id="email" type="text" name="email" placeholder="Enter email" required>
         </label>
-        <button type="submit">Save</button>
+        <button class="save-btn" type="submit">Save</button>
     </form>
 </section>

@@ -75,18 +75,18 @@ export class UserService {
   }
 
   public makeTransfer(amount: number, name: string) {
-
+    const user = JSON.parse(JSON.stringify(this.user))
+    console.log(user)
+    if (amount > user.coins) return
     const move: Move = {
       to: name,
       at: Date.now(),
       amount,
     }
-    const user = JSON.parse(JSON.stringify(this.user))
     user.moves.push(move)
     user.coins = user.coins - amount
     this.storageService.saveToStorage('user', user)
-    this._user$.next(user)
-    this.user = user
+    this.loadUser()
   }
 
 }
