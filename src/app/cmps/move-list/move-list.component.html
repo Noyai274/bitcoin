@@ -1,12 +1,13 @@
-<section class="moves" *ngIf="user.moves.length">
+<section class="moves" *ngIf="movesDisplay?.length">
     <div class="flex align-center">
         <img class="moves-img" src="../../assets/icon/switch.png" alt="">
         <h1 class="moves-title">{{title}}</h1>
     </div>
         <ul class="moves-list">
-        <li class="move-item" *ngFor="let move of user.moves">
+        <li class="move-item" *ngFor="let move of movesDisplay">
+            <hr class="move-hr">
             <h1 class="move-title" *ngIf="!contact">To {{move["to"]}}</h1>
-            <h2 class="move-amt"><span class="green">₿ {{move['amount']}}</span>{{toUsd(move['amount'])}} | {{btr$ | async | currency}}</h2>
+            <h2 class="move-amt"><span class="green">₿ {{move['amount']}}</span></h2> 
             <h2 class="move-date">{{move['at'] | date:'short'}}</h2>
         </li>
     </ul>

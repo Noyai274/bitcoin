@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { Move } from '../models/move.model';
 import { User } from '../models/user.model';
 import { AuthService } from './auth.service';
+import { BitcoinService } from './bitcoin.service';
 import { StorageService } from './storage.service';
 
 @Injectable({
@@ -26,7 +27,8 @@ export class UserService {
   public user$ = this._user$.asObservable()
 
   constructor(private storageService: StorageService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private bitcoinService: BitcoinService) { }
 
   loginNewUser(user: User) {
     user.coins = 100,
@@ -34,8 +36,7 @@ export class UserService {
       this.user = user
       this.users.push(user)
     this.authService.changeStatus(true)
-    this.storageService.saveToStorage('user', user)
-    this.loadUser()
+    this.saveUser(user)
     return this.user
   }
   
@@ -49,8 +50,12 @@ export class UserService {
     }
   }
   
+  public saveUser(user: User) {
+    this.storageService.saveToStorage('user', user)
+    this.loadUser()
+  }
+  
   public loadUser() {
-    // debugger
     let user = this.storageService.loadFromStorage('user')
     this.user = user
     this._user$.next(user)
@@ -68,25 +73,24 @@ export class UserService {
       return currUser.username === username &&
       currUser.password === password
     })
-    this.storageService.saveToStorage('user', loadedUser)
-    this.loadUser()
+    this.saveUser(loadedUser)
     return this.user
     
   }
 
   public makeTransfer(amount: number, name: string) {
-    const user = JSON.parse(JSON.stringify(this.user))
-    console.log(user)
+    const user = this.storageService.loadFromStorage('user')
     if (amount > user.coins) return
     const move: Move = {
       to: name,
       at: Date.now(),
+      amountInUsd: amount,
       amount,
     }
-    user.moves.push(move)
+    if (!user.moves.length) user.moves = [move]
+    else user.moves.push(move)
     user.coins = user.coins - amount
-    this.storageService.saveToStorage('user', user)
-    this.loadUser()
+    this.saveUser(user)
   }
 
 }

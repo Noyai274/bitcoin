@@ -30,4 +30,9 @@ export class EditContactComponent implements OnInit {
     const contactId = this.contactService.saveContact(this.contact)
     this.router.navigate(['/contact', contactId])
   }
+
+  onBack(contactId:string| undefined){
+    if (contactId) this.router.navigate(['/contact', contactId])
+    else this.router.navigateByUrl('/contact')
+  }
 }

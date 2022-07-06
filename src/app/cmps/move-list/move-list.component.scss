@@ -10,3 +10,11 @@ ul.moves-list{
     margin-inline-end: 0.5em;
     height: 30px;
 }
+.move-hr{
+    margin-inline-end: 4vw;
+}
+li:first-child{
+    .move-hr{
+        display: none;
+    }
+}

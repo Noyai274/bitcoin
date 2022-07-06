@@ -33,4 +33,6 @@ export class ContactDetailsComponent implements OnInit {
   transfer(amount:number){
     this.userService.makeTransfer(amount, this.contact.name)
   }
+
+  
 }

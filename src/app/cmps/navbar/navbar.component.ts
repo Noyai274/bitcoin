@@ -1,4 +1,4 @@
-import { Component, OnInit , Output, EventEmitter} from '@angular/core';
+import { Component, OnInit , Output, EventEmitter, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
@@ -9,7 +9,7 @@ import { UserService } from 'src/app/service/user.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
   @Output() nav = new EventEmitter
   constructor(private userService: UserService,
@@ -27,7 +27,9 @@ export class NavbarComponent implements OnInit {
     })
   }
 
-  
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
+  }
 
 
 }

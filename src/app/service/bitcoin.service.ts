@@ -14,9 +14,6 @@ export class BitcoinService {
 
     constructor(private http: HttpClient) { }
 
-    public toUsd(amount: number){
-        return this.http.get(`https://blockchain.info/tobtc?currency=USD&value=${amount}`)
-    }
 
     public getRate(coins: number) {
         return this.http.get<number>(`https://blockchain.info/tobtc?currency=USD&value=${1}`)

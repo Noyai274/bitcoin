@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
@@ -11,7 +11,7 @@ import { UserService } from 'src/app/service/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private userService: UserService,
@@ -40,6 +40,11 @@ export class HomeComponent implements OnInit {
   logout(){
     this.userService.logout()
     this.router.navigateByUrl('/signup')
+  }
+
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
   }
 
 }
