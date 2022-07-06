@@ -1,6 +1,6 @@
 <section class="contact-edit container" >
-    <a class="back-btn" (click)="onBack(contact._id)">back</a>
-    <img class="contact-img" src="../../assets/icon/contact.png" alt="">
+    <a class="back-btn" (click)="onBack(contact._id)">Back</a>
+    <img class="contact-img" src="assets/icon/contact.png" alt="">
     <form #form="ngForm" class="form-group flex column" (ngSubmit)="onSubmit(form.value)">
         <label for="name">
             <input class="edit-name" ngModel [(ngModel)]="contact.name" id="name" type="text" name="name" placeholder="Enter name" required>

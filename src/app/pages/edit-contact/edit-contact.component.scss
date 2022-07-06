@@ -2,9 +2,13 @@
     margin-top: 1em;
     text-align: center;  
     .back-btn{
+      cursor: pointer;
         display: block;
         margin-bottom: 1em;
         text-align: start;
+ }
+ .back-btn:hover{
+   text-decoration: none;
  }
  .contact-img{
     height: 80px;
